@@ -2,12 +2,13 @@ const choices = ['rock', 'paper', 'scissors'];
 let PlayerScore = 0;
 let ComputerScore = 0;
 
-function game() {
-    play(getPlayerChoice());
-    play(getPlayerChoice());
-    play(getPlayerChoice());
-    play(getPlayerChoice());
-    play(getPlayerChoice());
+document.querySelectorAll('button').forEach(
+    (b) => b.addEventListener('click', clickListener)
+);
+
+function clickListener(e) {
+    playerSelection = this.dataset.move;
+    play(playerSelection);
 
     let message;
     if (PlayerScore == ComputerScore) {
@@ -20,7 +21,6 @@ function game() {
 
     console.log(`[${PlayerScore} - ${ComputerScore}] ${message}`);
 }
-
 
 function play(playerSelection, computerSelection = getComputerChoice()) {
     if (!isValidChoice(playerSelection)) {
@@ -66,5 +66,3 @@ function getPlayerChoice() {
 function isValidChoice(choice) {
     return (choices.includes(choice));
 }
-
-game();
