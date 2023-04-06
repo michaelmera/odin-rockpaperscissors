@@ -1,10 +1,30 @@
 /* color palette: https://lospec.com/palette-list/fish-clouds */
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #1a2b3c;
 }
 
-.move {
+.player-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 200px;
+    padding: 100px;
+    margin: auto;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 80px;
     height: 80px;
     font-size: 35px;
@@ -12,6 +32,34 @@ body {
     border-radius: 50%;
     padding: 15px;
     background-color: #bf934a;
+    text-align: center;
+}
+
+.moves {
+    display: flex;
+    gap: 15px;
+}
+
+.move {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    border: solid 4px #6f574d;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #bf934a;
+
+    margin-top: 20px;
+
+    transition: transform ease-out 800ms;
+}
+
+.move:hover {
+    transform: scale(1.5);
 }
 
 .score {
