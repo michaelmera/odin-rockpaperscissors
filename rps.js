@@ -38,21 +38,17 @@ function clickListener(e) {
 
 function play(playerSelection, computerSelection = getComputerChoice()) {
     if (!isValidChoice(playerSelection)) {
-        console.log(`Your choice is not a valid move! You forfeit this round.`);
         ComputerScore += 1;
         return;
     }
 
     if (playerSelection == computerSelection) {
-        console.log(`It's a draw! You both chose ${playerSelection}`);
         return;
     }
 
     if (beats(playerSelection, computerSelection)) {
         PlayerScore += 1;
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
     } else {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         ComputerScore += 1;
     }
 }
