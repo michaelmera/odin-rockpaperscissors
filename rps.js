@@ -2,6 +2,8 @@ const choices = ['rock', 'paper', 'scissors'];
 let PlayerScore = 0;
 let ComputerScore = 0;
 
+resetGame();
+
 document.querySelectorAll('button').forEach(
     (b) => b.addEventListener('click', clickListener)
 );
@@ -19,7 +21,19 @@ function clickListener(e) {
         message = `You lose. Try again`;
     }
 
-    console.log(`[${PlayerScore} - ${ComputerScore}] ${message}`);
+    updateScore(PlayerScore, ComputerScore, message);
+
+    if (PlayerScore == 5) {
+        score = document.querySelector('div.score');
+        score.textContent = 'You Won!'
+        resetGame();
+    }
+
+    if (ComputerScore == 5) {
+        score = document.querySelector('div.score');
+        score.textContent = 'You Lose!'
+        resetGame();
+    }
 }
 
 function play(playerSelection, computerSelection = getComputerChoice()) {
@@ -41,6 +55,16 @@ function play(playerSelection, computerSelection = getComputerChoice()) {
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         ComputerScore += 1;
     }
+}
+
+function resetGame() {
+    PlayerScore = 0;
+    ComputerScore = 0;
+}
+
+function updateScore(playerScore, computerScore, message = '') {
+    score = document.querySelector('div.score');
+    score.textContent = `[${PlayerScore} - ${ComputerScore}] ${message}`;
 }
 
 function beats(selection1, selection2) {
