@@ -1,0 +1,19 @@
+/* color palette: https://lospec.com/palette-list/fish-clouds */
+
+body {
+    background-color: #1a2b3c;
+}
+
+.move {
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    border: solid 4px #6f574d;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #bf934a;
+}
+
+.score {
+    color: #bf934a;
+}
