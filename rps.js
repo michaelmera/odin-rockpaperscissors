@@ -12,17 +12,6 @@ function clickListener(e) {
     playerSelection = this.dataset.move;
     play(playerSelection);
 
-    let message;
-    if (PlayerScore == ComputerScore) {
-        message = `You're as strong as the computer!`;
-    } else if (PlayerScore > ComputerScore) {
-        message = `You have beaten the computer. Congrats!`;
-    } else {
-        message = `You lose. Try again`;
-    }
-
-    updateScore(PlayerScore, ComputerScore, message);
-
     if (PlayerScore == 5) {
         score = document.querySelector('div.score');
         score.textContent = 'You Won!'
@@ -39,6 +28,7 @@ function clickListener(e) {
 function play(playerSelection, computerSelection = getComputerChoice()) {
     if (!isValidChoice(playerSelection)) {
         ComputerScore += 1;
+        addStar('computer', ComputerScore);
         return;
     }
 
@@ -48,19 +38,29 @@ function play(playerSelection, computerSelection = getComputerChoice()) {
 
     if (beats(playerSelection, computerSelection)) {
         PlayerScore += 1;
+        addStar('player', PlayerScore);
     } else {
         ComputerScore += 1;
+        addStar('computer', ComputerScore);
     }
 }
 
 function resetGame() {
     PlayerScore = 0;
     ComputerScore = 0;
+
+    stars = document.querySelectorAll('.player-wrapper .star, .computer-wrapper .star');
+    stars.forEach((s) => s.textContent = '★');
 }
 
 function updateScore(playerScore, computerScore, message = '') {
     score = document.querySelector('div.score');
     score.textContent = `[${PlayerScore} - ${ComputerScore}] ${message}`;
+}
+
+function addStar(toWhom, number) {
+    star = document.querySelector(`.${toWhom}-wrapper .star:nth-child(${number})`);
+    star.textContent = '⭐';
 }
 
 function beats(selection1, selection2) {

@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -14,6 +16,11 @@ body {
     justify-content: center;
     align-items: center;
     gap: 50px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
 }
 
 .player-wrapper {
