@@ -6,6 +6,14 @@
 
 body {
     background-color: #1a2b3c;
+    color: #bf934a;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
 
 .player-wrapper {
@@ -17,7 +25,17 @@ body {
     width: 200px;
     height: 200px;
     padding: 100px;
-    margin: auto;
+}
+
+.computer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 200px;
+    padding: 100px;
 }
 
 .player {
@@ -35,9 +53,29 @@ body {
     text-align: center;
 }
 
+.computer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    border: solid 4px #6f574d;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #bf934a;
+    text-align: center;
+}
+
 .moves {
     display: flex;
     gap: 15px;
+}
+
+.vs {
+    font-size: 45px;
+    color: #de654a;
 }
 
 .move {
@@ -58,10 +96,6 @@ body {
     transition: transform ease-out 800ms;
 }
 
-.move:hover {
+.player-wrapper .move:hover {
     transform: scale(1.5);
-}
-
-.score {
-    color: #bf934a;
 }
