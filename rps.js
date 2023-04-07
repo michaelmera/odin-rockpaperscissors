@@ -4,9 +4,11 @@ let ComputerScore = 0;
 
 resetGame();
 
-document.querySelectorAll('button').forEach(
+document.querySelectorAll('.player-wrapper button').forEach(
     (b) => b.addEventListener('click', clickListener)
 );
+
+document.querySelector('#reset').addEventListener('click', resetListener);
 
 function clickListener(e) {
     playerSelection = this.dataset.move;
@@ -14,15 +16,21 @@ function clickListener(e) {
 
     if (PlayerScore == 5) {
         score = document.querySelector('div.score');
-        score.textContent = 'You Won!'
-        resetGame();
+        document.querySelector('div.score h1').textContent = 'You Won!';
+        score.classList.add('modal');
     }
 
     if (ComputerScore == 5) {
         score = document.querySelector('div.score');
-        score.textContent = 'You Lose!'
-        resetGame();
+        document.querySelector('div.score h1').textContent = 'You Lose!';
+        score.classList.add('modal');
     }
+}
+
+function resetListener(e) {
+    resetGame();
+    score = document.querySelector('div.score');
+    score.classList.remove('modal');
 }
 
 function play(playerSelection, computerSelection = getComputerChoice()) {
