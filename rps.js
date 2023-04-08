@@ -1,8 +1,30 @@
-const STATES = {
+const SCREENS = {
     MENU: 'menu',
     PLAY: 'play',
     OVER: 'over',
 };
+
+document.querySelectorAll('#menu, #play, #over').forEach(screen => {
+    screen.style.display = 'none'
+});
+
+screen = SCREENS.MENU
+
+switch (screen) {
+    case SCREENS.MENU:
+        document.querySelector('#menu').style.display = 'flex';
+        break;
+    case SCREENS.PLAY:
+        document.querySelector('#play').style.display = 'flex';
+        break;
+    case SCREENS.OVER:
+        document.querySelector('#over').style.display = 'flex';
+}
+
+document.querySelector('#menu button').addEventListener('click', (b) => {
+    document.querySelector('#menu').style.display = 'none';
+    document.querySelector('#play').style.display = 'flex';
+});
 
 
 const choices = ['rock', 'paper', 'scissors'];
@@ -24,20 +46,22 @@ function clickListener(e) {
     if (PlayerScore >= 5) {
         score = document.querySelector('#over');
         document.querySelector('#over h1').textContent = 'You Won!';
-        score.classList.add('modal');
+        document.querySelector('#play').style.display = 'none';
+        document.querySelector('#over').style.display = 'flex';
     }
 
     if (ComputerScore >= 5) {
         score = document.querySelector('#over');
         document.querySelector('#over h1').textContent = 'You Lose!';
-        score.classList.add('modal');
+        document.querySelector('#play').style.display = 'none';
+        document.querySelector('#over').style.display = 'flex';
     }
 }
 
 function resetListener(e) {
     resetGame();
-    score = document.querySelector('#over');
-    score.classList.remove('modal');
+    document.querySelector('#over').style.display = 'none';
+    document.querySelector('#play').style.display = 'flex';
 }
 
 function play(playerSelection, computerSelection = getComputerChoice()) {

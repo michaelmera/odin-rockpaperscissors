@@ -122,31 +122,10 @@ ul {
     flex-shrink: 0;
     
     background-color: #1a2b3c;
-    border: solid 0px #6f574d;
-    padding: 0px;
-
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-
-    transition: width 1s,
-                height 1s,
-                padding 1s,
-                border-width 0.5s;
+    border: solid 4px #6f574d;
+    padding: 15px;
 }
 
 #over h1 {
     white-space: nowrap;
-}
-
-#over.modal {
-    width: 300px;
-    height: 300px;
-    padding: 15px;
-    border-width: 4px;
 }
