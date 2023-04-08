@@ -10,45 +10,49 @@
     <script src="rps.js" defer></script>
 </head>
 <body>
-    <div class="game">
-        <div class="score">
+    <div id="game">
+        <div id="menu"></div>
+
+        <div id="over">
             <h1></h1>
             <button id="reset">Play Again!</button>
         </div>
 
-        <div class="player-wrapper">
-            <h1>Player</h1>
-            <div class="player">😀</div>
-            <ul>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-            </ul>
-        
-            <div class="moves">
-                <button class="move" data-move="rock">✊</button>
-                <button class="move" data-move="paper">📜</button>
-                <button class="move" data-move="scissors">✂️</button>
+        <div id="play">
+            <div class="player-wrapper">
+                <h1>Player</h1>
+                <div class="player">😀</div>
+                <ul>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                </ul>
+            
+                <div class="moves">
+                    <button class="move" data-move="rock">✊</button>
+                    <button class="move" data-move="paper">📜</button>
+                    <button class="move" data-move="scissors">✂️</button>
+                </div>
             </div>
-        </div>
-        <div class="vs">VS</div>
-        <div class="computer-wrapper">
-            <h1>Computer</h1>
-            <div class="computer">🤖</div>
-            <ul>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-                <li class="star">★</li>
-            </ul>
-        
-            <div class="moves">
-                <div class="move" data-move="rock">✊</div>
-                <div class="move" data-move="paper">📜</div>
-                <div class="move" data-move="scissors">✂️</div>
+            <div class="vs">VS</div>
+            <div class="computer-wrapper">
+                <h1>Computer</h1>
+                <div class="computer">🤖</div>
+                <ul>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                    <li class="star">★</li>
+                </ul>
+            
+                <div class="moves">
+                    <div class="move" data-move="rock">✊</div>
+                    <div class="move" data-move="paper">📜</div>
+                    <div class="move" data-move="scissors">✂️</div>
+                </div>
             </div>
         </div>
     </div>

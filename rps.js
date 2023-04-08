@@ -1,3 +1,10 @@
+const STATES = {
+    MENU: 'menu',
+    PLAY: 'play',
+    OVER: 'over',
+};
+
+
 const choices = ['rock', 'paper', 'scissors'];
 let PlayerScore = 0;
 let ComputerScore = 0;
@@ -14,22 +21,22 @@ function clickListener(e) {
     playerSelection = this.dataset.move;
     play(playerSelection);
 
-    if (PlayerScore == 5) {
-        score = document.querySelector('div.score');
-        document.querySelector('div.score h1').textContent = 'You Won!';
+    if (PlayerScore >= 5) {
+        score = document.querySelector('#over');
+        document.querySelector('#over h1').textContent = 'You Won!';
         score.classList.add('modal');
     }
 
-    if (ComputerScore == 5) {
-        score = document.querySelector('div.score');
-        document.querySelector('div.score h1').textContent = 'You Lose!';
+    if (ComputerScore >= 5) {
+        score = document.querySelector('#over');
+        document.querySelector('#over h1').textContent = 'You Lose!';
         score.classList.add('modal');
     }
 }
 
 function resetListener(e) {
     resetGame();
-    score = document.querySelector('div.score');
+    score = document.querySelector('#over');
     score.classList.remove('modal');
 }
 
@@ -59,11 +66,6 @@ function resetGame() {
 
     stars = document.querySelectorAll('.player-wrapper .star, .computer-wrapper .star');
     stars.forEach((s) => s.textContent = '★');
-}
-
-function updateScore(playerScore, computerScore, message = '') {
-    score = document.querySelector('div.score');
-    score.textContent = `[${PlayerScore} - ${ComputerScore}] ${message}`;
 }
 
 function addStar(toWhom, number) {
